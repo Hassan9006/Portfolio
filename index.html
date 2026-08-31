@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hasan Khan - Designer Portfolio</title>
+  
+  <!-- Google Fonts: Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Fontshare CDN: Satoshi Font -->
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    /* ==========================================================================
+       VARIABLES & RESET
+       ========================================================================== */
+    :root {
+      --bg-dark: #09090b;
+      --card-bg: #121316;
+      --card-border: #1f2128;
+      --blue-accent: #194BFD;
+      --purple-gradient: linear-gradient(135deg, #3d3bfa 0%, #a838ff 100%);
+      --text-main: #ffffff;
+      --text-muted: #8b8f9a;
+      --text-sub: #525660;
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-body: 'Satoshi', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & GLOBAL STYLES
+       ========================================================================== */
+    h1, h2, h3, h4, h5, h6, .brand-logo, .nav-links a, .btn, .footer-heading {
+      font-family: var(--font-heading);
+    }
+
+    .text-blue {
+      color: var(--blue-accent);
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      margin-bottom: 0.5rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 540px;
+      margin: 0 auto 3rem auto;
+      font-size: 0.95rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION (FIXED NAVBAR)
+       ========================================================================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(9, 9, 11, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 75px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--blue-accent);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .btn-gradient {
+      background: var(--purple-gradient);
+      color: var(--text-main);
+    }
+
+    .btn-text-card {
+      background: #1a1c23;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding-top: 140px;
+      padding-bottom: 80px;
+      position: relative;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      line-height: 1.15;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      position: relative;
+    }
+
+    .hero-card p {
+      color: var(--text-muted);
+      max-width: 520px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .hero-badge-pattern {
+      position: absolute;
+      right: 120px;
+      bottom: 40px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: repeating-linear-gradient(45deg, #a838ff, #a838ff 2px, transparent 2px, transparent 6px);
+    }
+
+    .hero-star {
+      position: absolute;
+      right: 40px;
+      top: -30px;
+      color: #7b42ff;
+      font-size: 1.8rem;
+    }
+
+    /* ==========================================================================
+       GLOBAL GRID & CARD STYLES
+       ========================================================================== */
+    .section-padding {
+      padding: 60px 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ==========================================================================
+       ABOUT ME SECTION
+       ========================================================================== */
+    .about-text-box {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-text-box p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .about-text-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ==========================================================================
+       SERVICES SECTION
+       ========================================================================== */
+    .service-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .service-card .card-icon-wrapper {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1rem;
+      border: 1px dashed #333;
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-card .card-icon-wrapper i {
+      transform: rotate(-45deg);
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    .service-card .btn-text-card {
+      margin-top: auto;
+      display: inline-flex;
+    }
+
+    /* ==========================================================================
+       PORTFOLIOS SECTION (THUMBNAILS & LOGOS)
+       ========================================================================== */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    /* YouTube Thumbnail standard ratio 16:9 */
+    .portfolio-item {
+      background: #18191d;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      border: 1px solid var(--card-border);
+      position: relative;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    /* Logo standard 1:1 square size (500x500 standard) */
+    .logo-item {
+      background: #18191d;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      border: 1px solid var(--card-border);
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .logo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ==========================================================================
+       PRICING SECTION
+       ========================================================================== */
+    .pricing-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--blue-accent);
+    }
+
+    .pricing-card.popular {
+      border-color: var(--blue-accent);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      background: var(--purple-gradient);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .pricing-tier-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-card.bronze .pricing-tier-title {
+      color: #cd7f32;
+    }
+
+    .pricing-card.silver .pricing-tier-title {
+      color: #c0c0c0;
+    }
+
+    .pricing-card.gold .pricing-tier-title {
+      color: #ffd700;
+    }
+
+    .pricing-price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 1.5rem;
+      font-family: var(--font-heading);
+    }
+
+    .pricing-price span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .pricing-features {
+      list-style: none;
+      width: 100%;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+      text-align: left;
+    }
+
+    .pricing-features li {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .pricing-features li i {
+      color: var(--blue-accent);
+      font-size: 0.85rem;
+    }
+
+    .pricing-card .btn {
+      width: 100%;
+    }
+
+    /* ==========================================================================
+       HIRE ME SECTION
+       ========================================================================== */
+    .hire-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .hire-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--blue-accent);
+    }
+
+    .hire-icon-wrapper {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hire-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hire-card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .hire-card .btn {
+      width: 100%;
+    }
+
+    /* ==========================================================================
+       FOOTER SECTION
+       ========================================================================== */
+    footer {
+      background-color: var(--bg-dark);
+      padding-top: 60px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 2.5rem;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--blue-accent);
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 1.25rem;
+      text-decoration: none;
+    }
+
+    .footer-brand span {
+      color: var(--text-main);
+    }
+
+    .footer-desc {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 1.5rem;
+      max-width: 320px;
+      line-height: 1.7;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #16181e;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-heading {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-main);
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .contact-item i {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      width: 16px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 25px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN MEDIA QUERIES
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-badge-pattern {
+        display: none;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED NAVBAR -->
+  <header>
+    <div class="container navbar">
+      <a href="#" class="brand-logo">
+        <i class="fa-solid fa-compass"></i> HK
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Service</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#hire-me">Hire Me</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h1 class="hero-title">
+        This is your<br>
+        designer<br>
+        <span class="text-blue">Hasan Khan</span>
+      </h1>
+
+      <div class="hero-card">
+        <p>I'm Hassan, a graphic designer based out of Islamabad, specializing in Graphics Design. I focus on creating designs that don't just look great, but actually drive real results whether that's designing high-quality thumbnails that get clicks, crafting clean logos that give a brand a real identity, or building eye-catching posters for events and campaigns. Every project I take on is built from scratch, tailored specifically to stand out and communicate clearly to the right audience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ME SECTION -->
+  <section id="about" class="section-padding">
+    <div class="container">
+      <div class="section-tag">ABOUT ME</div>
+      <h2 class="section-title">My <span class="text-blue">work process</span></h2>
+      <p class="section-subtitle">Learn more about who I am and how I craft seamless visual experiences.</p>
+
+      <div class="about-text-box">
+        <p>
+          When I start a new project, I don't jump into design tools and throw elements together. First, I take time to understand what the project needs and what the main goal is. From there, I gather inspiration, sketch concepts, and map out the layout, colors, and fonts for the best impact. Once the groundwork is solid, I dive into detailed editing—tweaking lighting, compositions, and spacing until everything is right. Balancing smart planning with careful polish is what makes the final graphic standout.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="section-padding">
+    <div class="container">
+      <div class="section-tag">SERVICES</div>
+      <h2 class="section-title">My <span class="text-blue">services</span></h2>
+      <p class="section-subtitle">I offer UI/UX services, Thumbnail Design & logo design.</p>
+      <div class="grid-3">
+        <!-- UI & UX Design -->
+        <div class="service-card">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-desktop"></i></div>
+          <h3>UI & UX Design</h3>
+          <div class="card-divider"></div>
+          <p>Crafting visual interfaces, high-fidelity prototypes, and seamless user experiences.</p>
+        </div>
+
+        <!-- Thumbnail Design -->
+        <div class="service-card">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-image"></i></div>
+          <h3>Thumbnail Design</h3>
+          <div class="card-divider"></div>
+          <p>Designing high-converting graphics and engaging custom video thumbnails.</p>
+        </div>
+
+        <!-- Logo Design -->
+        <div class="service-card">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-pen-nib"></i></div>
+          <h3>Logo Design</h3>
+          <div class="card-divider"></div>
+          <p>Building strong visual brand identities, vectors, and memorable brand logos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIOS SECTION -->
+  <section id="projects" class="section-padding">
+    <div class="container">
+      <div class="section-tag">PORTFOLIOS</div>
+      <h2 class="section-title">My <span class="text-blue">completed projects</span></h2>
+      <p class="section-subtitle">These are all those projects I have completed for my clients.</p>
+      
+      <!-- Thumbnails Section -->
+      <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--text-main);">YouTube Thumbnails</h3>
+      <div class="portfolio-grid">
+        <div class="portfolio-item"><img src="T1.png" alt="Thumbnail 1"></div>
+        <div class="portfolio-item"><img src="T2.png" alt="Thumbnail 2"></div>
+        <div class="portfolio-item"><img src="T3.png" alt="Thumbnail 3"></div>
+        <div class="portfolio-item"><img src="T4.png" alt="Thumbnail 4"></div>
+        <div class="portfolio-item"><img src="T5.png" alt="Thumbnail 5"></div>
+        <div class="portfolio-item"><img src="T6.png" alt="Thumbnail 6"></div>
+        <div class="portfolio-item"><img src="T7.png" alt="Thumbnail 7"></div>
+        <div class="portfolio-item"><img src="T8.png" alt="Thumbnail 8"></div>
+        <div class="portfolio-item"><img src="T9.png" alt="Thumbnail 9"></div>
+      </div>
+
+      <!-- Logos Section -->
+      <h3 style="font-size: 1.25rem; font-weight: 600; margin: 3rem 0 1.5rem 0; color: var(--text-main);">Logos</h3>
+      <div class="logo-grid">
+        <div class="logo-item"><img src="l1.png" alt="Logo 1"></div>
+        <div class="logo-item"><img src="l2.png" alt="Logo 2"></div>
+        <div class="logo-item"><img src="l5.png" alt="Logo 3"></div>
+        <div class="logo-item"><img src="l4.png" alt="Logo 4"></div>
+        <div class="logo-item"><img src="l3.png" alt="Logo 5"></div>
+        <div class="logo-item"><img src="l6.png" alt="Logo 6"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section id="pricing" class="section-padding">
+    <div class="container">
+      <div class="section-tag">PLANS & PRICING</div>
+      <h2 class="section-title">Select Your <span class="text-blue">Package</span></h2>
+      <p class="section-subtitle">Cost-Friendly packages for you. (Price is negotiable in golden package)</p>
+
+      <div class="grid-3">
+        <!-- Bronze Package -->
+        <div class="pricing-card bronze">
+          <h3 class="pricing-tier-title">Bronze</h3>
+          <div class="pricing-price">$5 <span>/ project</span></div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-check"></i> 1 High-Quality Thumbnail</li>
+            <li><i class="fa-solid fa-check"></i> 24-48 Hours Delivery</li>
+            <li><i class="fa-solid fa-check"></i> 1 Revision Only</li>
+            <li><i class="fa-solid fa-check"></i> High Resolution PNG/JPEG</li>
+          </ul>
+          <a href="#hire-me" class="btn btn-gradient">Get Started</a>
+        </div>
+
+        <!-- Silver Package -->
+        <div class="pricing-card silver popular">
+          <div class="pricing-badge">Most Popular</div>
+          <h3 class="pricing-tier-title">Silver</h3>
+          <div class="pricing-price">$10 <span>/ package</span></div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-check"></i> Upto 3 Custom Thumbnails</li>
+            <li><i class="fa-solid fa-check"></i> 24 Hours Priority Delivery</li>
+            <li><i class="fa-solid fa-check"></i> Unlimited Revisions</li>
+          </ul>
+          <a href="#hire-me" class="btn btn-gradient">Get Started</a>
+        </div>
+
+        <!-- Golden Package -->
+        <div class="pricing-card gold">
+          <h3 class="pricing-tier-title">Golden</h3>
+          <div class="pricing-price">$20 <span>/ package</span></div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-check"></i> Upto 7 Custom Designs (Thumbnails)</li>
+            <li><i class="fa-solid fa-check"></i> Same-Day Fast Delivery</li>
+            <li><i class="fa-solid fa-check"></i> Unlimited Revisions</li>
+            <li><i class="fa-solid fa-check"></i> Full Branding & Source Files</li>
+            <li><i class="fa-solid fa-check"></i> VIP 24/7 Dedicated Support</li>
+          </ul>
+          <a href="#hire-me" class="btn btn-gradient">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIRE ME SECTION -->
+  <section id="hire-me" class="section-padding">
+    <div class="container">
+      <div class="section-tag">LET'S WORK TOGETHER</div>
+      <h2 class="section-title">Hire <span class="text-blue">Me</span></h2>
+      <p class="section-subtitle">Choose your preferred platform or drop me an email directly to start your project.</p>
+
+      <div class="grid-3">
+        <!-- Fiverr Card -->
+        <div class="hire-card">
+          <div class="hire-icon-wrapper">
+            <i class="fa-solid fa-bolt" style="color: #1dbf73;"></i>
+          </div>
+          <h3>Fiverr Gig</h3>
+          <p>Order directly via Fiverr for structured milestones, protected payments, and quick delivery times.</p>
+          <a href="http://www.fiverr.com/s/1qrPZa0" target="_blank" class="btn btn-gradient">Order on Fiverr <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <!-- Behance Card -->
+        <div class="hire-card">
+          <div class="hire-icon-wrapper">
+            <i class="fa-brands fa-behance" style="color: #0057ff;"></i>
+          </div>
+          <h3>Behance Portfolio</h3>
+          <p>Reach out directly through Behance messaging.</p>
+          <a href="https://www.behance.net/hassankhan572" target="_blank" class="btn btn-gradient">View Behance <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <!-- Gmail Card -->
+        <div class="hire-card">
+          <div class="hire-icon-wrapper">
+            <i class="fa-solid fa-envelope" style="color: #ea4335;"></i>
+          </div>
+          <h3>Direct Email</h3>
+          <p>Gmail: hassank9006@gmail.com</p>
+          <a href="https://mail.google.com/mail/u/0/" class="btn btn-gradient">Send Email <i class="fa-solid fa-paper-plane"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER SECTION -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Column 1: Brand & Description -->
+        <div>
+          <a href="#" class="footer-brand">
+            <i class="fa-solid fa-compass"></i> <span>HK</span>
+          </a>
+          <p class="footer-desc">
+            You can connect with me online through social media by using these main platforms: LinkedIn, Behance and Instagram. Please reach out on these networks if you have questions, want to share feedback, or wish to collaborate. I check my messages often and look forward to hearing from you there.
+          </p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/hassan-khan-512560311/" target="_blank" class="social-icon" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.behance.net/hassankhan572" target="_blank" class="social-icon" title="Behance"><i class="fa-brands fa-behance"></i></a>
+            <a href="https://www.instagram.com/hssan.rehman/" target="_blank" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick link</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Service</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#hire-me">Hire Me</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contacts Info -->
+        <div>
+          <h4 class="footer-heading">Contacts</h4>
+          <ul class="contact-list">
+            <li class="contact-item">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>hassank9006@gmail.com</span>
+            </li>
+            <li class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Islamabad, Pakistan</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bottom Bar -->
+      <div class="footer-bottom">
+        Copyright 2026 | All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
